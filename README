@@ -1,0 +1,10 @@
+Archey-like system information tool for StotinkaOS 
+
+Начин на използване
+===================
+
+./sosinfo
+
+или за лого със цвят
+
+./sosinfo -c
