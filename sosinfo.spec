@@ -1,13 +1,13 @@
 Summary: Archey-like system information tool for StotinkaOS
 Summary(bg): Archey подобно приложение за показване на системна информация в терминал за StotinkaOS
 Name: sosinfo
-Version: 1.0
-Release: 1%{?dist}.sos
+Version: 1.2
+Release: 1%{?dist}
 URL: https://github.com/StotinkaOS/sosinfo
 License: GPLv3
 Group: Applications/System
 BuildRoot: %{_tmppath}/%{name}-root
-Requires: bash 
+Requires: bash
 Source0: %{name}-%{version}.tar.gz
 BuildArch: noarch
 
@@ -40,5 +40,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_datadir}/licenses/%{name}/COPYING
 
 %changelog
-* Sun Aug 16 2015 Ivaylo Kuzev <ivo@stotinkaos.net> - 1.0-1
-- Initial .spec
+* Fri Nov 18 2016 StotinkaOS Team <stotinkaos.bg@gmail.com> - 1.2-1
+- Update to 1.2
+
+* Sun Aug 16 2016 StotinkaOS Team <stotinkaos.bg@gmail.com> - 1.1-1
+- Rebuild for StotinkaOS 7
+- Update to 1.1

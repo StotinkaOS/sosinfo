@@ -1,10 +1,10 @@
 #!/bin/env bash
 
-# [version 1.0]
+# [version 1.2]
 
 # sosinfo - Archey-like system information tool for StotinkaOS.
 
-# Copyright (C) 2015 StotinkaOS Team <stotinkaos.bg@gmail.com>
+# Copyright (C) 2015-2016 StotinkaOS Team <stotinkaos.bg@gmail.com>
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -17,6 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Variables
+PROG="${0##*/}"
 user="$(whoami)"
 distro="StotinkaOS $(uname -m)";
 hostname="$(uname -n)";
@@ -28,21 +29,23 @@ packages="$(rpm -qa | wc -l)";
 cpu="$(cat /proc/cpuinfo | grep 'model name' | cut -f 2 -d ':' | sed -n '1p' | sed 's/CPU //;')";
 ram="$(free -m | sed -n '2p' | awk '{print $3"M / "$2"M"}')";
 
-# -c option to enable color logo
-if [[ $1 == "-c" ]] || [[ $1 == "--color" ]]; then
-  yellow='\e[1;33m'
-  purple='\e[1;35m'
-  blue='\e[1;34m'
-  green='\e[1;32m'
-  end='\e[0m'
-fi
+usage(){
+cat <<EOF
+  usage: $PROG [options] <argv>...
+
+  Options:
+     -c, --color
+     -h, --help
+EOF
+  exit 0
+}
 
 # from @@iEFdev Archey-OS-X
 # Function _disk()
 # ------------------------------------------------------------
 # Display: used/N% of total (N available) (disk)
 #
-function disk() {
+disk() {
   if [[ $diskWarning == 0 ]]; then
     # Without colors...
     disk=`df -Hl | head -2 | tail -1 | awk '{print $3"/"$5 " of " $2 " (" $4 " available) (" $1 ")"}'  | sed 's/\/dev\///g'`;
@@ -69,8 +72,28 @@ function disk() {
     disk="$uSize/$pSize $totSize $aSize $mPoint";
   fi
 }
-# load
 disk;
+
+# Command line options
+for arg in "$@"; do
+  case "${arg}" in
+    -c|--color)
+      yellow='\e[1;33m'
+      purple='\e[1;35m'
+      blue='\e[1;34m'
+      green='\e[1;32m'
+      end='\e[0m'
+      ;;
+    -h|--help)
+      usage;
+      ;;
+    *)
+      echo "Unknown argument: $1" 1>&2
+      echo "Use: $0 --help" 1>&2
+      exit 1
+      ;;
+  esac
+done
 
 # Logo
 echo -e "
