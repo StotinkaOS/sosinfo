@@ -30,6 +30,7 @@ packages="$(rpm -qa | wc -l)";
 cpu="$(cat /proc/cpuinfo | grep 'model name' | cut -f 2 -d ':' | sed -n '1p' | sed 's/CPU //;')";
 ram="$(free -m | sed -n '2p' | awk '{print $3"M / "$2"M"}')";
 disk="$(df -Tlh --total -t ext4 -t ext3 -t xfs --block-size=GB | head -2 | tail -1 | awk '{print $4"/"$3 " от " $2 " (" $5 " свободни) (" $1 ")"}' | sed 's/\/dev\///g')"
+resolution="$(xrandr --current | grep  '*' | uniq | awk '{print $1}')"
 
 usage(){
 cat <<EOF
@@ -75,12 +76,12 @@ echo -e "
 ${green}.,,,,,,     ${blue}c00'           ${purple}.xkkkkk.  ${blue}Uptime:${end} $uptime
  ${green}......     ${blue}.k00dl:,.       ${purple},:::::.  ${blue}DE:${end} $de
 ${green}'ccccc;       ${blue}.';coO0O.     ${purple}......   ${blue}Shell:${end} $shell
-${blue}'000000.           ${blue}.00c     ${yellow},,,,,,   ${blue}Terminal:${end} terminal
- ${blue}d00000k.   ${blue};oc:;:lk0k.    ${yellow}',,,,,.   ${blue}Packages:${end} $packages
-  ${blue}x000000:  ${blue}.,:ccc:,.    ${yellow}.,,,,,,'    ${blue}CPU:${end} $cpu
-   ${blue}o0000000o;.        ${yellow}..,,,,,,,.     ${blue}Memory:${end} $ram
-    ${blue}.x000000000O: ${yellow}.',,,,,,,,,'${end}       ${blue}Disk:${end} $disk
-      ${blue}.lO0000000c ${yellow}.,,,,,,,'.${end}
+${blue}'000000.           ${blue}.00c     ${yellow},,,,,,   ${blue}Resolution:${end} $resolution
+ ${blue}d00000k.   ${blue};oc:;:lk0k.    ${yellow}',,,,,.   ${blue}Terminal:${end} terminal
+  ${blue}x000000:  ${blue}.,:ccc:,.    ${yellow}.,,,,,,'    ${blue}Packages:${end} $packages
+   ${blue}o0000000o;.        ${yellow}..,,,,,,,.     ${blue}CPU:${end} $cpu
+    ${blue}.x000000000O: ${yellow}.',,,,,,,,,'${end}       ${blue}Memory:${end} $ram
+      ${blue}.lO0000000c ${yellow}.,,,,,,,'.${end}         ${blue}Disk:${end} $disk
          ${blue}.;lxO00c ${yellow}.,,''..${end}
               ${blue}...${end}
 "
