@@ -77,7 +77,7 @@ ${green}.,,,,,,     ${blue}c00'           ${purple}.xkkkkk.  ${blue}Uptime:${end
  ${green}......     ${blue}.k00dl:,.       ${purple},:::::.  ${blue}DE:${end} $de
 ${green}'ccccc;       ${blue}.';coO0O.     ${purple}......   ${blue}Shell:${end} $shell
 ${blue}'000000.           ${blue}.00c     ${yellow},,,,,,   ${blue}Resolution:${end} $resolution
- ${blue}d00000k.   ${blue};oc:;:lk0k.    ${yellow}',,,,,.   ${blue}Terminal:${end} terminal
+ ${blue}d00000k.   ${blue};oc:;:lk0k.    ${yellow}',,,,,.   ${blue}Terminal:${end} $terminal
   ${blue}x000000:  ${blue}.,:ccc:,.    ${yellow}.,,,,,,'    ${blue}Packages:${end} $packages
    ${blue}o0000000o;.        ${yellow}..,,,,,,,.     ${blue}CPU:${end} $cpu
     ${blue}.x000000000O: ${yellow}.',,,,,,,,,'${end}       ${blue}Memory:${end} $ram
