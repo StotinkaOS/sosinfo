@@ -28,6 +28,7 @@ terminal="$TERM";
 packages="$(rpm -qa | wc -l)";
 cpu="$(cat /proc/cpuinfo | grep 'model name' | cut -f 2 -d ':' | sed -n '1p' | sed 's/CPU //;')";
 ram="$(free -m | sed -n '2p' | awk '{print $3"M / "$2"M"}')";
+disk="$(df -Tlh --total -t ext4 -t ext3 -t xfs --block-size=GB | head -2 | tail -1 | awk '{print $4"/"$3 " от " $2 " (" $5 " свободни) (" $1 ")"}' | sed 's/\/dev\///g')"
 
 usage(){
 cat <<EOF
@@ -39,40 +40,6 @@ cat <<EOF
 EOF
   exit 0
 }
-
-# from @@iEFdev Archey-OS-X
-# Function _disk()
-# ------------------------------------------------------------
-# Display: used/N% of total (N available) (disk)
-#
-disk() {
-  if [[ $diskWarning == 0 ]]; then
-    # Without colors...
-    disk=`df -Hl | head -2 | tail -1 | awk '{print $3"/"$5 " of " $2 " (" $4 " available) (" $1 ")"}'  | sed 's/\/dev\///g'`;
-  else
-    # DiskWarning will show some red text when the space
-    # left on disk is below the setting.
-
-    # used size
-    uSize=`df -Hl | head -2 | tail -1 | awk '{ print $3}'`;
-
-    # used size (%)
-    pSize=`df -Hl | head -2 | tail -1 | awk '{ print $5}'`;
-
-    # total size
-    totSize=`df -Hl | head -2 | tail -1 | awk '{ printf "of %-1s", $2}'`;
-
-    # available size
-    aSize=`df -Hl | head -2 | tail -1 | awk '{ printf "(%-1s available)", $4}'`;
-
-    # diskNsN
-    mPoint=`df -Hl | head -2 | tail -1 | awk '{printf "(%-1s)", $1}'  | sed 's/\/dev\///g'`;
-
-    # Sum up ...
-    disk="$uSize/$pSize $totSize $aSize $mPoint";
-  fi
-}
-disk;
 
 # Command line options
 for arg in "$@"; do
