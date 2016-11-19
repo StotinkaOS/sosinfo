@@ -19,7 +19,7 @@
 # Variables
 PROG="${0##*/}"
 user="$(whoami)"
-distro="StotinkaOS $(uname -m)";
+distro="StotinkaOS $(cat /etc/centos-release | sed 's/^.*release //;s/ (Fin.*$//')";
 hostname="$(uname -n)";
 kernel="$(uname -r)";
 de="$DESKTOP_SESSION"
