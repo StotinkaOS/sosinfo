@@ -22,6 +22,7 @@ user="$(whoami)"
 distro="StotinkaOS $(uname -m)";
 hostname="$(uname -n)";
 kernel="$(uname -r)";
+de="$DESKTOP_SESSION"
 uptime="$(uptime | sed 's/.*up \([^,]*\), .*/\1/')";
 shell="${SHELL#/*/*}";
 terminal="$TERM";
@@ -72,13 +73,13 @@ echo -e "
   ${green}',,,,,,.    ${blue}.;ccc:;.   ${purple};xkkkkko    ${blue}Distro:${end} $distro
  ${green}.,,,,,'    ${blue}.k0kc;;:lo    ${purple}.dkkkkkl   ${blue}Kernel:${end} $kernel
 ${green}.,,,,,,     ${blue}c00'           ${purple}.xkkkkk.  ${blue}Uptime:${end} $uptime
- ${green}......     ${blue}.k00dl:,.       ${purple},:::::.  ${blue}Shell:${end} $shell
-${green}'ccccc;       ${blue}.';coO0O.     ${purple}......   ${blue}Terminal:${end} $terminal
-${blue}'000000.           ${blue}.00c     ${yellow},,,,,,   ${blue}Packages:${end} $packages
- ${blue}d00000k.   ${blue};oc:;:lk0k.    ${yellow}',,,,,.   ${blue}CPU:${end} $cpu
-  ${blue}x000000:  ${blue}.,:ccc:,.    ${yellow}.,,,,,,'    ${blue}Memory:${end} $ram
-   ${blue}o0000000o;.        ${yellow}..,,,,,,,.     ${blue}Disk:${end} $disk
-    ${blue}.x000000000O: ${yellow}.',,,,,,,,,'${end}
+ ${green}......     ${blue}.k00dl:,.       ${purple},:::::.  ${blue}DE:${end} $de
+${green}'ccccc;       ${blue}.';coO0O.     ${purple}......   ${blue}Shell:${end} $shell
+${blue}'000000.           ${blue}.00c     ${yellow},,,,,,   ${blue}Terminal:${end} terminal
+ ${blue}d00000k.   ${blue};oc:;:lk0k.    ${yellow}',,,,,.   ${blue}Packages:${end} $packages
+  ${blue}x000000:  ${blue}.,:ccc:,.    ${yellow}.,,,,,,'    ${blue}CPU:${end} $cpu
+   ${blue}o0000000o;.        ${yellow}..,,,,,,,.     ${blue}Memory:${end} $ram
+    ${blue}.x000000000O: ${yellow}.',,,,,,,,,'${end}       ${blue}Disk:${end} $disk
       ${blue}.lO0000000c ${yellow}.,,,,,,,'.${end}
          ${blue}.;lxO00c ${yellow}.,,''..${end}
               ${blue}...${end}
