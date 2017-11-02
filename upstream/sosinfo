@@ -66,22 +66,23 @@ done
 
 # Logo
 echo -e "
-                  ${purple}..${end}
-          ${green}..',,,. ${purple}:kkxoc,.${end}
-       ${green}.,,,,,,,,. ${purple}:kkkkkkkxc.${end}
-     ${green}',,,,,,,,,,. ${purple};xkkkkkkkkko.      ${blue}User:${end} $user
-   ${green}.,,,,,,,..        ${purple}.,lxkkkkkkc     ${blue}Hostname:${end} $hostname
-  ${green}',,,,,,.    ${blue}.;ccc:;.   ${purple};xkkkkko    ${blue}Distro:${end} $distro
- ${green}.,,,,,'    ${blue}.k0kc;;:lo    ${purple}.dkkkkkl   ${blue}Kernel:${end} $kernel
-${green}.,,,,,,     ${blue}c00'           ${purple}.xkkkkk.  ${blue}Uptime:${end} $uptime
- ${green}......     ${blue}.k00dl:,.       ${purple},:::::.  ${blue}DE:${end} $de
-${green}'ccccc;       ${blue}.';coO0O.     ${purple}......   ${blue}Shell:${end} $shell
-${blue}'000000.           ${blue}.00c     ${yellow},,,,,,   ${blue}Resolution:${end} $resolution
- ${blue}d00000k.   ${blue};oc:;:lk0k.    ${yellow}',,,,,.   ${blue}Terminal:${end} $terminal
-  ${blue}x000000:  ${blue}.,:ccc:,.    ${yellow}.,,,,,,'    ${blue}Packages:${end} $packages
-   ${blue}o0000000o;.        ${yellow}..,,,,,,,.     ${blue}CPU:${end} $cpu
-    ${blue}.x000000000O: ${yellow}.',,,,,,,,,'${end}       ${blue}Memory:${end} $ram
-      ${blue}.lO0000000c ${yellow}.,,,,,,,'.${end}         ${blue}Disk:${end} $disk
-         ${blue}.;lxO00c ${yellow}.,,''..${end}
-              ${blue}...${end}
+              ${blue}.............${end}
+          ${blue}.....................${end}
+        ${blue}...........................${end}
+      ${blue}.........${end}${yellow},codxxxxxdl:,${end}${blue}.........${end}     ${blue}User:${end} $user
+     ${blue}.......${end}${yellow},lkkkxlc;;;:ccodxl'${end}${blue}.......${end}    ${blue}Hostname:${end} $hostname
+    ${blue}......${end}${yellow}'okkkd.${end}             ${blue}.........${end}   ${blue}Distro:${end} $distro
+   ${blue}......${end}${yellow}'kkkkk'${end}                 ${blue}.......${end}  ${blue}Kernel:${end} $kernel
+  ${blue}.......${end} ${yellow}kkkkkl${end}                  ${blue}.......${end} ${blue}Uptime:${end} $uptime
+  ${blue}......${end}  ${yellow}:kkkkkxlc;;;;;;;,.${end}      ${blue}.......${end} ${blue}DE:${end} $de
+  ${blue}......${end}   ${yellow},xkkkkkkkkkkkkkkkkd;${end}    ${blue}......${end} ${blue}Shell:${end} $shell
+  ${blue}......${end}     ${yellow}.;coodkkkkkkkkkkkkx.${end}  ${blue}......${end} ${blue}Resolution:${end} $resolution
+  ${blue}.......${end}                 ${yellow}'xkkkko${end}${blue} .......${end} ${blue}Terminal:${end} $terminal
+   ${blue}.......${end}                 ${yellow}ckkkkk${end}${blue}.......${end}  ${blue}Packages:${end} $packages
+   ${blue}........${end}               ${yellow}.okkkx;${end}${blue}......${end}   ${blue}CPU:${end} $cpu      
+     ${blue}.......${end}${yellow}coc:;,.....,;okkkd:${end}${blue}.......${end}    ${blue}Memory:${end} $ram
+      ${blue}........${end}${yellow},coxkkkkkkkxoc,${end}${blue}........${end}     ${blue}Disk:${end} $disk
+        ${blue}...........${end}${yellow}','''${end}${blue}...........${end}
+          ${blue}.......................${end}
+             ${blue}................${end}
 "
